@@ -4,20 +4,22 @@ import { Contacts } from './pages/Contacts';
 import { Home } from './pages/Home';
 import { Profile } from './pages/Profile';
 import { Nav } from './pages/Nav';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import { useState, createContext } from "react";
-import {QueryClient, QueryClientProvider} from "@tanstack/react-query"
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 
 
-export const AppContext = createContext();
+
 
 function App() {
 
-  const[username, setUsername] = useState("Kidus");
+
+
+ const client = new QueryClient();
 
   return (
     <div className="App" >
-     <AppContext.Provider value={{username, setUsername}}>
+    <QueryClientProvider client={client}>
     <Router>
         <Nav />
       <Routes>
@@ -26,8 +28,8 @@ function App() {
         <Route  path="/contacts" element={<Contacts />}/>
       </Routes>
     </Router>
-    </AppContext.Provider>
-
+  
+    </QueryClientProvider>
     </div>
   );
 }
