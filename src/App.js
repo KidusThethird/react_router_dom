@@ -6,6 +6,7 @@ import { Profile } from './pages/Profile';
 import { Nav } from './pages/Nav';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import { useState, createContext } from "react";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query"
 
 
 export const AppContext = createContext();
